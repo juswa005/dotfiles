@@ -1,0 +1,43 @@
+window {
+    margin: 0px;
+    border: 2px solid #2b2b2b;
+    background-color: rgba(21, 21, 21, 0.75);
+    border-radius: 0px;
+}
+
+#input {
+    margin: 5px;
+    border: none;
+    color: #e0e0e0;
+    background-color: rgba(43, 43, 43, 0.5);
+    padding: 10px;
+    border-radius: 0px;
+}
+
+#inner-box {
+    margin: 5px;
+    border: none;
+    background-color: transparent;
+}
+
+#outer-box {
+    margin: 5px;
+    border: none;
+    background-color: transparent;
+}
+
+#scroll {
+    margin: 0px;
+    border: none;
+}
+
+#text {
+    margin: 5px;
+    border: none;
+    color: #e0e0e0;
+}
+
+#entry:selected {
+    background-color: rgba(43, 43, 43, 0.8);
+    border-radius: 0px;
+}

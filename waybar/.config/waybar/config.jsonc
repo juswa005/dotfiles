@@ -1,0 +1,159 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 34,
+  "spacing": 4,
+
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/cava",
+    "custom/powerprofile"
+  ],
+
+  "modules-center": [
+    "clock"
+  ],
+
+  "modules-right": [
+    "group/hardware",
+    "pulseaudio",
+    "network",
+    "bluetooth",
+    "battery",
+    "tray"
+  ],
+
+  "group/hardware": {
+    "orientation": "inherit",
+    "drawer": {
+        "transition-duration": 500,
+        "children-class": "hardware-item",
+        "transition-left-to-right": false
+    },
+    "modules": [
+        "custom/expand",
+        "custom/gpu",
+        "memory",
+        "cpu"
+    ]
+  },
+
+  "custom/expand": {
+    "format": "",
+    "tooltip": false
+  },
+
+"hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "format-icons": {
+      "default": "",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
+      "active": "󱓻"
+    },
+    "persistent-workspaces": {
+      "*": [1, 2, 3, 4, 5]
+    }
+  },
+
+  "clock": {
+    "format": "{:%a %d %b %Y %H:%M}",
+    "format-alt": "{:%Y-%m-%d}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  }, 
+
+  "custom/emp": {
+    "exec": "hostname",
+    "on-click": "kitty --class waybar-kitty --hold -e fastfetch"
+  },
+  "cpu": {
+    "format": " {usage}%",
+    "interval": 5,
+    "on-click": "kitty --class waybar-kitty -e btop"
+  },
+
+  "custom/gpu": {
+    "exec": "nvidia-smi --query-gpu=utilization.gpu,temperature.gpu --format=csv,noheader,nounits | awk -F ', ' '{printf \"󰢮 %s%% %s°C\", $1, $2}'",
+    "interval": 5,
+    "tooltip": false,
+    "on-click": "kitty --class waybar-kitty -e nvtop"
+  },
+
+  "memory": {
+    "format": " {percentage}%",
+    "interval": 5,
+    "on-click": "kitty --class waybar-kitty -e btop"
+  },
+
+  "network": {
+    "format-wifi": "",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤮",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "on-click": "kitty --class waybar-kitty -e wifitui"
+  },
+
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "overskride"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰖁 muted",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "kitty --class waybar-kitty -e pulsemixer"
+  },
+
+  "battery": {
+      "states": {
+          "warning": 30,
+          "critical": 15
+      },
+      "format": "{icon} {capacity}%",
+      "format-charging": "󰂄 Plugged {capacity}%",
+      "format-plugged": "󰂄 Plugged {capacity}%",
+      "format-full": "󰁹 Full {capacity}%",
+      "format-icons": [
+         "󰁺","󰁻","󰁼","󰁽","󰁾",
+         "󰁿","󰂀","󰂁","󰂂","󰁹"
+      ]
+  },
+
+  "custom/powerprofile": {
+    "exec": "mode=$(powerprofilesctl get); if [ \"$mode\" = \"performance\" ]; then echo '{\"text\":\"\", \"tooltip\":\"Performance Mode\"}'; elif [ \"$mode\" = \"power-saver\" ]; then echo '{\"text\":\"󰌪\", \"tooltip\":\"Power Saver Mode\"}'; else echo '{\"text\":\"󰾆\", \"tooltip\":\"Balanced Mode\"}'; fi",
+    "return-type": "json",
+    "interval": 2,
+    "format": "{}",
+    "on-click": "mode=$(powerprofilesctl get); if [ \"$mode\" = \"performance\" ]; then powerprofilesctl set power-saver; elif [ \"$mode\" = \"power-saver\" ]; then powerprofilesctl set balanced; else powerprofilesctl set performance; fi"
+  },
+
+  "custom/cava": {
+    "exec": "/home/amiel/.config/waybar/scripts/cava.sh",
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": false
+  },
+
+  "tray": {
+    "spacing": 8
+  }
+}
