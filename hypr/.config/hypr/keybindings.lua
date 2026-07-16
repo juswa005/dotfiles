@@ -12,7 +12,7 @@ local applauncher = programs.applauncher
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + C", hl.dsp.window.close())
+hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("/home/amiel/.config/hypr/scripts/agy-launcher.sh"))
 hl.bind(mainMod .. " + W", hl.dsp.window.close())
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exit())
@@ -87,6 +87,7 @@ hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -m window --output-folder ~/P
 
 -- Dark mode and light mode toggle
 hl.bind(mainMod .. " + ALT + SPACE", hl.dsp.exec_cmd("/home/amiel/.config/hypr/scripts/toggle-theme.sh"))
+
 
 -- Switch workspaces with mainMod + [0-9]
 for i = 1, 10 do
