@@ -49,13 +49,13 @@ hl.bind("ALT + Tab", hl.dsp.window.cycle_next())
 hl.bind("ALT + SHIFT + Tab", hl.dsp.window.cycle_next({ direction = "prev" }))
 
 -- Volume (secondary controls)
-hl.bind(mainMod .. " + up", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"))
-hl.bind(mainMod .. " + down", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"))
-hl.bind(mainMod .. " + right", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
+hl.bind(mainMod .. " + up", hl.dsp.exec_cmd("/home/amiel/.local/bin/sys-notify volume_up"))
+hl.bind(mainMod .. " + down", hl.dsp.exec_cmd("/home/amiel/.local/bin/sys-notify volume_down"))
+hl.bind(mainMod .. " + right", hl.dsp.exec_cmd("/home/amiel/.local/bin/sys-notify volume_mute"))
 
 -- Brightness (secondary controls)
-hl.bind(mainMod .. " + SHIFT + U", hl.dsp.exec_cmd("brightnessctl set +10%"))
-hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd("brightnessctl set 10%-"))
+hl.bind(mainMod .. " + SHIFT + U", hl.dsp.exec_cmd("/home/amiel/.local/bin/sys-notify brightness_up"))
+hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd("/home/amiel/.local/bin/sys-notify brightness_down"))
 
 hl.bind(mainMod .. " + CONTROL + LEFT", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + CONTROL + RIGHT", hl.dsp.focus({ direction = "right" }))
@@ -105,12 +105,12 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })
-hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),     { locked = true, repeating = true })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("/home/amiel/.local/bin/sys-notify volume_up"),       { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("/home/amiel/.local/bin/sys-notify volume_down"),     { locked = true, repeating = true })
+hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("/home/amiel/.local/bin/sys-notify volume_mute"),     { locked = true, repeating = true })
 hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),   { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl set +10%"),                  { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl set 10%-"),                  { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("/home/amiel/.local/bin/sys-notify brightness_up"),   { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("/home/amiel/.local/bin/sys-notify brightness_down"), { locked = true, repeating = true })
 
 -- Requires playerctl
 hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
