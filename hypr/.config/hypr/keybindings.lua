@@ -34,7 +34,6 @@ hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 -- WebApps
 local webapp = "/home/amiel/.config/hypr/scripts/launch-webapp.sh"
 hl.bind(mainMod .. " + I", hl.dsp.exec_cmd(webapp .. ' "https://www.instagram.com/"'))
-hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd(webapp .. ' "https://calendar.google.com/"'))
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.exec_cmd(webapp .. ' "https://www.facebook.com/"'))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(webapp .. ' "https://chatgpt.com"'))
 hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd("spotify --enable-features=UseOzonePlatform --ozone-platform=wayland"))
@@ -84,6 +83,12 @@ hl.bind(mainMod .. " + ALT + DOWN", hl.dsp.exec_cmd("hyprctl dispatch resizeacti
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region --output-folder ~/Pictures/Screenshots"))
 hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m output --output-folder ~/Pictures/Screenshots"))
 hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -m window --output-folder ~/Pictures/Screenshots"))
+
+-- Screen Recording
+local screenrecord = "/home/amiel/.config/hypr/scripts/screen-record.sh"
+hl.bind(mainMod .. " + ALT + S", hl.dsp.exec_cmd(screenrecord .. " audio"))
+hl.bind(mainMod .. " + CONTROL + S", hl.dsp.exec_cmd(screenrecord .. " silent"))
+hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd(screenrecord .. " stop"))
 
 -- Dark mode and light mode toggle
 hl.bind(mainMod .. " + ALT + SPACE", hl.dsp.exec_cmd("/home/amiel/.config/hypr/scripts/toggle-theme.sh"))
