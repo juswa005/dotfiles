@@ -69,3 +69,10 @@ window#waybar {
 #tray { margin-right: 10px; }
 #custom-screenrecord.recording { color: #ff0000; font-weight: bold; }
 #custom-powerprofile, #custom-cava { padding: 0 10px; color: #ffffff; }
+
+#custom-powermenu {
+    margin-left: 12px;
+    margin-right: 4px;
+    font-size: 16px;
+    color: #89b4fa;
+}

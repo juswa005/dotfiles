@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+if pkill wofi; then
+	exit 0
+fi
+
 # This script lists all agy (antigravity-cli) conversations.
 # First wofi shows the list of past conversations with context.
 # Second wofi shows details and an option to launch it.

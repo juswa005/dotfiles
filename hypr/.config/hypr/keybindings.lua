@@ -31,6 +31,10 @@ hl.bind(mainMod .. " + SHIFT + ESCAPE", hl.dsp.exec_cmd("/home/amiel/.config/hyp
 hl.bind(mainMod .. " + CONTROL + L", hl.dsp.exec_cmd("/home/amiel/.config/hypr/scripts/toggle-hypridle.sh"))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 
+-- Dashboard
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("quickshell ipc call dashboard toggle"))
+hl.bind(mainMod .. " + TAB", hl.dsp.exec_cmd("quickshell ipc call dashboard toggle"))
+
 -- WebApps
 local webapp = "/home/amiel/.config/hypr/scripts/launch-webapp.sh"
 hl.bind(mainMod .. " + I", hl.dsp.exec_cmd(webapp .. ' "https://www.instagram.com/"'))
@@ -42,6 +46,7 @@ hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd(webapp .. ' "https://youtube.com/"'))
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(webapp .. ' "https://facebook.com/messages/"'))
 hl.bind(mainMod .. " + SHIFT + G", hl.dsp.exec_cmd(webapp .. ' "https://github.com/juswa005"'))
 hl.bind(mainMod .. " + SHIFT + K", hl.dsp.exec_cmd(webapp .. ' "https://gemini.google.com/app"'))
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd(webapp .. ' "https://search.nixos.org/packages" ' ))
 
 -- Alt tab to change focus
 hl.bind("ALT + Tab", hl.dsp.window.cycle_next())
@@ -56,22 +61,11 @@ hl.bind(mainMod .. " + right", hl.dsp.exec_cmd("/home/amiel/.local/bin/sys-notif
 hl.bind(mainMod .. " + SHIFT + U", hl.dsp.exec_cmd("/home/amiel/.local/bin/sys-notify brightness_up"))
 hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd("/home/amiel/.local/bin/sys-notify brightness_down"))
 
-hl.bind(mainMod .. " + CONTROL + LEFT", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + CONTROL + RIGHT", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + CONTROL + UP", hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + CONTROL + DOWN", hl.dsp.focus({ direction = "down" }))
-
 -- Swap tiled windows
 hl.bind(mainMod .. " + CONTROL + SHIFT + LEFT", hl.dsp.exec_cmd("hyprctl dispatch swapwindow l"))
 hl.bind(mainMod .. " + CONTROL + SHIFT + RIGHT", hl.dsp.exec_cmd("hyprctl dispatch swapwindow r"))
 hl.bind(mainMod .. " + CONTROL + SHIFT + UP", hl.dsp.exec_cmd("hyprctl dispatch swapwindow u"))
 hl.bind(mainMod .. " + CONTROL + SHIFT + DOWN", hl.dsp.exec_cmd("hyprctl dispatch swapwindow d"))
-
--- Move floating window
-hl.bind(mainMod .. " + SHIFT + LEFT", hl.dsp.exec_cmd("hyprctl dispatch moveactive -20 0"))
-hl.bind(mainMod .. " + SHIFT + RIGHT", hl.dsp.exec_cmd("hyprctl dispatch moveactive 20 0"))
-hl.bind(mainMod .. " + SHIFT + UP", hl.dsp.exec_cmd("hyprctl dispatch moveactive 0 -20"))
-hl.bind(mainMod .. " + SHIFT + DOWN", hl.dsp.exec_cmd("hyprctl dispatch moveactive 0 20"))
 
 -- Resize floating window
 hl.bind(mainMod .. " + ALT + LEFT", hl.dsp.exec_cmd("hyprctl dispatch resizeactive -20 0"))
@@ -100,10 +94,6 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
     hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
-
--- Scroll through existing workspaces with mainMod + scroll
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })

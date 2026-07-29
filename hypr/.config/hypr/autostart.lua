@@ -21,4 +21,7 @@ hl.on("hyprland.start", function ()
     -- Clipboard management
     hl.exec_cmd("wl-paste --type text --watch cliphist store &")
     hl.exec_cmd("wl-paste --type image --watch cliphist store &")
+
+    -- Automount USB devices, notify, and open in file manager
+    hl.exec_cmd("udiskie -a -n -s --event-hook \"sh -c '[ \\\"{event}\\\" = \\\"device_mounted\\\" ] && nautilus \\\"{mount_path}\\\"'\" &")
 end)

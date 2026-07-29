@@ -6,6 +6,8 @@
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("XCURSOR_THEME", "NixIconCursorGoldilocks")
+hl.env("HYPRCURSOR_THEME", "NixIconCursorGoldilocks")
 
 -- Enforce Dark Mode
 hl.env("GTK_THEME", "Adwaita:dark")

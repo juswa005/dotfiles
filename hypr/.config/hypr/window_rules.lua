@@ -73,6 +73,8 @@ hl.config({
 	layerrule = {
 		"blur, wofi",
 		"ignorealpha 0.1, wofi",
+		"blur, quickshell",
+		"ignorealpha 0.5, quickshell",
 	},
 })
 

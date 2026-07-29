@@ -5,8 +5,8 @@
   "spacing": 4,
 
   "modules-left": [
+    "custom/powermenu",
     "hyprland/workspaces",
-    "custom/cava",
     "custom/powerprofile"
   ],
 
@@ -43,7 +43,13 @@
     "tooltip": false
   },
 
-"hyprland/workspaces": {
+  "custom/powermenu": {
+    "format": "",
+    "on-click": "~/.config/hypr/scripts/powermenu.sh",
+    "tooltip": false
+  },
+
+  "hyprland/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
     "on-scroll-up": "hyprctl dispatch workspace e+1",
