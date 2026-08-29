@@ -46,6 +46,14 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	name = "amberol",
+	match = { class = "^(io\\.bassi\\.Amberol)$" },
+	float = true,
+	size = "360 630",
+	center = true,
+})
+
+hl.window_rule({
 	name = "overskride",
 	match = { class = "^io\\.github\\.kaii_lb\\.Overskride$" },
 	float = true,
@@ -64,9 +72,18 @@ hl.window_rule({
 hl.window_rule({
 	name = "waybar-kitty",
 	match = { class = "^waybar-kitty$" },
+	workspace = "e+0",
 	float = true,
 	center = true,
 	size = "800 600",
+})
+
+hl.window_rule({
+	name = "supersonic-float",
+	match = { class = "^[sS]upersonic.*" },
+	float = true,
+	center = true,
+	size = "1000 700",
 })
 
 hl.config({
@@ -75,6 +92,8 @@ hl.config({
 		"ignorealpha 0.1, wofi",
 		"blur, quickshell",
 		"ignorealpha 0.5, quickshell",
+		"blur, waybar",
+		"ignorezero, waybar",
 	},
 })
 

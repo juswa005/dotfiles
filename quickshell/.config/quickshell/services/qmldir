@@ -1,0 +1,6 @@
+module services
+singleton Hyprland 1.0 Hyprland.qml
+singleton Mpris 1.0 Mpris.qml
+singleton Weather 1.0 Weather.qml
+singleton AudioService 1.0 AudioService.qml
+singleton BrightnessService 1.0 BrightnessService.qml

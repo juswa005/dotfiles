@@ -1,0 +1,4 @@
+module components
+Panel 1.0 Panel.qml
+GlassCard 1.0 GlassCard.qml
+CustomSlider 1.0 CustomSlider.qml
