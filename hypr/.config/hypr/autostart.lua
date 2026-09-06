@@ -22,6 +22,10 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("wl-paste --type text --watch cliphist store &")
     hl.exec_cmd("wl-paste --type image --watch cliphist store &")
 
+    hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &")
+    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &")
+    hl.exec_cmd("systemctl --user start dummy-session.target &")
+
     -- Automount USB devices, notify, and open in file manager
     hl.exec_cmd("udiskie -a -n -s --event-hook \"sh -c '[ \\\"{event}\\\" = \\\"device_mounted\\\" ] && nautilus \\\"{mount_path}\\\"'\" &")
 end)

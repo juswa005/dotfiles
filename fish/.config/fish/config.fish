@@ -10,3 +10,6 @@ end
 set -gx PATH $PATH /home/amiel/.lmstudio/bin
 # End of LM Studio CLI section
 
+
+# opencode
+fish_add_path /home/amiel/.opencode/bin

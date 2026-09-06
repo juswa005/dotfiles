@@ -5,8 +5,6 @@
 local programs = require("programs")
 
 local terminal    = programs.terminal
-local fileManager = programs.fileManager
-local menu        = programs.menu
 local applauncher = programs.applauncher
 
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
@@ -16,8 +14,7 @@ hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("/home/amiel/.config/hypr/scripts/agy
 hl.bind(mainMod .. " + W", hl.dsp.window.close())
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exit())
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("nautilus"))
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd(terminal .. " --class waybar-kitty -e /home/amiel/.config/hypr/scripts/sync-music.sh"))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(applauncher))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
@@ -31,10 +28,6 @@ hl.bind(mainMod .. " + SHIFT + ESCAPE", hl.dsp.exec_cmd("/home/amiel/.config/hyp
 hl.bind(mainMod .. " + CONTROL + L", hl.dsp.exec_cmd("/home/amiel/.config/hypr/scripts/toggle-hypridle.sh"))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 
--- Dashboard
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("quickshell ipc call dashboard toggle"))
-hl.bind(mainMod .. " + TAB", hl.dsp.exec_cmd("quickshell ipc call dashboard toggle"))
-
 -- WebApps
 local webapp = "/home/amiel/.config/hypr/scripts/launch-webapp.sh"
 hl.bind(mainMod .. " + I", hl.dsp.exec_cmd(webapp .. ' "https://www.instagram.com/"'))
@@ -42,6 +35,7 @@ hl.bind(mainMod .. " + SHIFT + F", hl.dsp.exec_cmd(webapp .. ' "https://www.face
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(webapp .. ' "https://chatgpt.com"'))
 -- hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd("spotify --enable-features=UseOzonePlatform --ozone-platform=wayland"))
 hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd("/home/amiel/.config/hypr/scripts/launch_supersonic.sh"))
+hl.bind(mainMod .. " + CONTROL + A", hl.dsp.exec_cmd(webapp .. ' "https://music.youtube.com/"'))
 hl.bind(mainMod .. " + G", hl.dsp.exec_cmd(webapp .. ' "https://mail.google.com"'))
 hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd(webapp .. ' "https://youtube.com/"'))
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(webapp .. ' "https://facebook.com/messages/"'))
@@ -50,6 +44,8 @@ hl.bind(mainMod .. " + SHIFT + K", hl.dsp.exec_cmd(webapp .. ' "https://gemini.g
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd(webapp .. ' "https://search.nixos.org/packages" ' ))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(webapp .. ' "http://192.168.254.254/login.html"'))
 hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd(webapp .. ' "https://nyaa.si/"'))
+hl.bind(mainMod .. " + CONTROL + N", hl.dsp.exec_cmd(terminal .. " --class quicknote -e /home/amiel/.config/hypr/scripts/quicknote.sh"))
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("obsidian"))
 
 -- Alt tab to change focus
 hl.bind("ALT + Tab", hl.dsp.window.cycle_next())

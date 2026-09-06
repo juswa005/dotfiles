@@ -4,7 +4,7 @@
 
 return {
     terminal    = "kitty",
-    fileManager = "nautilus --new-window",
+    fileManager = "nautilus",
     menu        = "pkill wofi || wofi --show drun --term kitty",
     applauncher = "pkill wofi || wofi --show drun --term kitty",
 }

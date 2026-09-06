@@ -86,6 +86,14 @@ hl.window_rule({
 	size = "1000 700",
 })
 
+hl.window_rule({
+	name = "quicknote",
+	match = { class = "^quicknote$" },
+	float = true,
+	center = true,
+	size = "800 600",
+})
+
 hl.config({
 	layerrule = {
 		"blur, wofi",
