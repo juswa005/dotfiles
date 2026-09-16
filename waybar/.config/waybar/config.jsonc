@@ -11,11 +11,12 @@
   ],
 
   "modules-center": [
-    "clock"
+    "custom/clock"
   ],
 
   "modules-right": [
     "group/hardware",
+    "custom/lowfi",
     "pulseaudio",
     "network",
     "bluetooth",
@@ -41,6 +42,14 @@
   "custom/expand": {
     "format": "",
     "tooltip": false
+  },
+
+  "custom/jarvis": {
+    "exec": "/home/amiel/.config/waybar/scripts/jarvis.sh status",
+    "return-type": "json",
+    "format": "{}",
+    "on-click": "/home/amiel/.config/waybar/scripts/jarvis.sh toggle",
+    "interval": 2
   },
 
   "custom/powermenu": {
@@ -73,10 +82,13 @@
     }
   },
 
-  "clock": {
-    "format": "{:%a %d %b %Y %H:%M}",
-    "format-alt": "{:%Y-%m-%d}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  "custom/clock": {
+    "exec": "/home/amiel/.config/waybar/scripts/clock.sh",
+    "return-type": "json",
+    "format": "{}",
+    "on-click": "/home/amiel/.config/waybar/scripts/clock.sh toggle",
+    "interval": 60,
+    "signal": 9
   }, 
 
   "custom/emp": {
@@ -159,7 +171,15 @@
     "tooltip": false
   },
 
-
+  "custom/lowfi": {
+    "exec": "/home/amiel/.config/waybar/scripts/lowfi.sh",
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": true,
+    "on-click": "/home/amiel/.config/waybar/scripts/lowfi.sh toggle",
+    "signal": 8,
+    "interval": 5
+  },
 
   "tray": {
     "spacing": 8

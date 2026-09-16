@@ -33,7 +33,7 @@ window#waybar {
     border-radius: 4px;
 }
 
-#clock {
+#custom-clock {
     color: #ffffff;
     font-weight: 500;
 }
@@ -52,7 +52,7 @@ window#waybar {
     border-right: 1px solid rgba(43, 43, 43, 0.8);
 }
 
-#clock:hover,
+#custom-clock:hover,
 #cpu:hover,
 #custom-gpu:hover,
 #custom-emp:hover,
@@ -68,7 +68,7 @@ window#waybar {
 #battery.critical { color: #ff5555; }
 #tray { margin-right: 10px; }
 #custom-screenrecord.recording { color: #ff0000; font-weight: bold; }
-#custom-powerprofile, #custom-cava { padding: 0 10px; color: #ffffff; }
+#custom-powerprofile, #custom-cava, #custom-lowfi, #custom-jarvis { padding: 0 10px; color: #ffffff; }
 
 #custom-powermenu {
     margin-left: 12px;
@@ -78,3 +78,10 @@ window#waybar {
 }
 
 
+
+#custom-lowfi.active, #custom-jarvis.active {
+    color: #a6e3a1;
+}
+#custom-lowfi.inactive, #custom-jarvis.inactive {
+    color: #a0a0a0;
+}

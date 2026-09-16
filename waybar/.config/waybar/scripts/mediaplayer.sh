@@ -54,7 +54,7 @@ format_output() {
     status=$(cat "$STATUS_FILE" 2>/dev/null)
 
     if [[ "$status" == "Stopped" || -z "$status" ]]; then
-        echo '{"text": "♫ Nothing Playing", "class": "inactive", "tooltip": "No media playing"}'
+        echo '{"text": "d[-_-]b Nothing Playing", "class": "inactive", "tooltip": "No media playing"}'
     else
         # Determine status icon
         icon="▶"
